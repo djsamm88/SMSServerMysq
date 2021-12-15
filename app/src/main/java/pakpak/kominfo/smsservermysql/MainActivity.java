@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final String PREF_USER_MOBILE_PHONE = "pref_user_mobile_phone";
     private static final int SMS_PERMISSION_CODE = 0;
+    private static final int SMS_PERMISSION_CODE_SEND = 00;
 
 
     private String mUserMobilePhone;
@@ -135,6 +136,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         if (!hasReadSmsPermission()) {
             showRequestPermissionsInfoAlertDialog();
+        }
+
+        if(!hasSendSmsPermission())
+        {
+            showRequestKirimPermissionsInfoAlertDialog();
         }
 
         //showRequestPermissionsInfoAlertDialog();
@@ -355,7 +361,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private boolean hasValidPreConditions() {
         if (!hasReadSmsPermission()) {
-            requestReadAndSendSmsPermission();
+            requestReadSmsPermission();
             return false;
         }
 
@@ -375,23 +381,52 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                requestReadAndSendSmsPermission();
+                requestReadSmsPermission();
+
             }
         });
         builder.show();
     }
 
+    private void showRequestKirimPermissionsInfoAlertDialog()
+    {
+        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setTitle(R.string.permission_alert_dialog_title);
+        builder.setMessage(R.string.permission_dialog_message);
+        builder.setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+
+                requestSendSmsPermission();
+            }
+        });
+        builder.show();
+    }
+
+
+
     /**
      * Runtime permission shenanigans
      */
+
+    private boolean hasSendSmsPermission() {
+        return ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(MainActivity.this,
+                        Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED;
+
+    }
+
     private boolean hasReadSmsPermission() {
         return ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.READ_SMS) == PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(MainActivity.this,
                         Manifest.permission.RECEIVE_SMS) == PackageManager.PERMISSION_GRANTED;
+
     }
 
-    private void requestReadAndSendSmsPermission()
+    private void requestReadSmsPermission()
     {
         if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.READ_SMS))
         {
@@ -400,6 +435,19 @@ public class MainActivity extends AppCompatActivity {
         }
         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS},
                 SMS_PERMISSION_CODE);
+    }
+
+
+
+    private void requestSendSmsPermission()
+    {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.SEND_SMS))
+        {
+            Log.d(TAG, "shouldShowRequestPermissionRationale(), no permission requested");
+            return;
+        }
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS, Manifest.permission.SEND_SMS},
+                SMS_PERMISSION_CODE_SEND);
     }
 
 

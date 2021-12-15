@@ -1,15 +1,19 @@
 package pakpak.kominfo.smsservermysql;
 
+import android.Manifest;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -226,7 +230,12 @@ public class OutboxService extends Service {
 
                             if(modelKirim.getStatus().equals("new"))
                             {
+
+
                                 SmsHelper.sendDebugSms(modelKirim.getNomor(), modelKirim.getPesan());
+
+
+
 
                                 /*** jika sudah berhasil***/
                                 update_sent(modelKirim.getId());
