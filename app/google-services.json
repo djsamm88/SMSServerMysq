@@ -1,0 +1,102 @@
+{
+  "project_info": {
+    "project_number": "600285437098",
+    "firebase_url": "https://smsfirebaseproject-d76df.firebaseio.com",
+    "project_id": "smsfirebaseproject-d76df",
+    "storage_bucket": "smsfirebaseproject-d76df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600285437098:android:831b5f21c99a1901",
+        "android_client_info": {
+          "package_name": "com.medantechno.sms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600285437098-t2r52r2s2p4bi4v7gevqfjcnh1hifiv8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medantechno.sms",
+            "certificate_hash": "1083576a32aeefd09281088fe80f9a43b01f2966"
+          }
+        },
+        {
+          "client_id": "600285437098-j27tlco97rg0n2us9o8h14i8sin3q107.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medantechno.sms",
+            "certificate_hash": "8d8e3db11588cc018a71cd1ca818d5b2da118730"
+          }
+        },
+        {
+          "client_id": "600285437098-3a689j67k981098evq6kim7e7k0pku3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.medantechno.sms",
+            "certificate_hash": "8b5531c4f1871f1d49667586fdafc0d1b2b5852a"
+          }
+        },
+        {
+          "client_id": "600285437098-u1jhk3livirlvnti1u0gqm3ukduhjo87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0E-zu8Y__oHaFNlnU3fzdbe6pe0YF3BU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600285437098-u1jhk3livirlvnti1u0gqm3ukduhjo87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600285437098:android:7421fdd307bbaa93",
+        "android_client_info": {
+          "package_name": "pakpak.kominfo.smsservermysql"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600285437098-u1jhk3livirlvnti1u0gqm3ukduhjo87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0E-zu8Y__oHaFNlnU3fzdbe6pe0YF3BU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
