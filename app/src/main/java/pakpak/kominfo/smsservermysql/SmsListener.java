@@ -42,126 +42,12 @@ public class SmsListener extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
 
-        if(intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED"))
-        {
 
 
-            /*
-            Intent intentx = new Intent();
-            intentx.setClassName("pakpak.kominfo.smsservermysql", "pakpak.kominfo.smsservermysql.MainActivity");
-            intentx.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intentx);
-            */
-
-
-
-
-            Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
-            SmsMessage[] msgs = null;
-            String msg_from;
-
-
-            System.out.println("pdunya"+bundle);
-
-            if (bundle != null){
-                //---retrieve the SMS message received---
-                try{
-                    Object[] pdus = (Object[]) bundle.get("pdus");
-                    msgs = new SmsMessage[pdus.length];
-
-                    System.out.println("pdunya"+pdus);
-
-                    for(int i=0; i<msgs.length; i++){
-                        msgs[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                        msg_from = msgs[i].getOriginatingAddress();
-                        String msgBody = msgs[i].getMessageBody();
-
-                        System.out.println("dari:"+msg_from+".pesan:"+msgBody);
-
-
-
-                        Random random = new Random();
-                        int x = random.nextInt(90000) + 10000;
-
-                        String waktu = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new java.util.Date());
-
-
-                        DbUser dbUser = new DbUser(context);
-                        String email;
-                        try{
-                            int id = dbUser.select_terbesar().getId_member();
-                            String id_member = String.valueOf(id);
-                            email = dbUser.select_terbesar().getEmail();
-                            Log.d("member:",id_member+email);
-
-                        }catch (Exception e)
-                        {
-                            email="";
-                        }
-
-
-                        try {
-
-                            //newPostRef.setValue(new ModelKirim(String.valueOf(x),msg_from, msgBody, email, "new",waktu,newPostRef.getKey()));
-
-
-                            inbox_simpan(msg_from,msgBody,msgs.toString(),email,context);
-
-                            /***** notif ******/
-                            setNotif("Pushed from:"+msg_from, msgBody, context);
-                            /***** notif ******/
-
-                        }catch (Exception y)
-                        {
-                            /**** disini ke db sementara ****/
-
-                            DbInbox dbInbox = new DbInbox(context);
-                            try{
-                                dbInbox.insert(new ModelKirim(String.valueOf(x),msg_from,msgBody,email,"offline",waktu,msgs.toString()));
-                            }catch (Exception xxxx)
-                            {
-
-                            }
-
-                        }
-
-                    }
-                }catch(Exception e){
-//                            Log.d("Exception caught",e.getMessage());
-                }
-            }
-        }
     }
 
 
 
-
-
-    public static final String md5(final String s)
-    {
-        final String MD5 = "MD5";
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = MessageDigest
-                    .getInstance(MD5);
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-
-            // Create Hex String
-            StringBuilder hexString = new StringBuilder();
-            for (byte aMessageDigest : messageDigest) {
-                String h = Integer.toHexString(0xFF & aMessageDigest);
-                while (h.length() < 2)
-                    h = "0" + h;
-                hexString.append(h);
-            }
-            return hexString.toString();
-
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
 
 

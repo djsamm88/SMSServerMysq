@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,6 +33,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
@@ -63,7 +65,7 @@ public class ForegroundService extends Service {
         Context context = getApplicationContext();
 
         PendingIntent action = PendingIntent.getActivity(context,
-                0, new Intent(context, MainActivity.class),
+                0, new Intent(context, SplashScreen.class),
                 PendingIntent.FLAG_CANCEL_CURRENT); // Flag indicating that if the described PendingIntent already exists, the current one should be canceled before generating a new one.
 
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -95,28 +97,21 @@ public class ForegroundService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
+        //inbox service
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("android.provider.Telephony.SMS_RECEIVED");
+        registerReceiver(SmsBroadcastReceiver,filter);
+
+
         if (intent.getAction().contains("start")) {
 
-            new SmsBroadcastReceiver(); //inbox
             bacaOutbox();   //outbox
 
             startForeground(101, updateNotification(""));
-            /*
-            h = new Handler();
 
-            r = new Runnable() {
-                @Override
-                public void run() {
-                    startForeground(101, updateNotification());
-                    h.postDelayed(this, 1000);
-                }
-            };
 
-            h.post(r);
-
-             */
         } else {
-            //h.removeCallbacks(r);
+
             stopForeground(true);
             stopSelf();
         }
@@ -125,7 +120,7 @@ public class ForegroundService extends Service {
     }
 
 
-    private class SmsBroadcastReceiver extends BroadcastReceiver {
+    private final BroadcastReceiver SmsBroadcastReceiver = new BroadcastReceiver() {
 
         private static final String TAG = "SmsBroadcastReceiver";
 
@@ -135,13 +130,6 @@ public class ForegroundService extends Service {
 
             if (intent.getAction().equals("android.provider.Telephony.SMS_RECEIVED")) {
 
-
-            /*
-            Intent intentx = new Intent();
-            intentx.setClassName("pakpak.kominfo.smsservermysql", "pakpak.kominfo.smsservermysql.MainActivity");
-            intentx.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(intentx);
-            */
 
 
                 Bundle bundle = intent.getExtras();           //---get the SMS message passed in---
@@ -220,10 +208,13 @@ public class ForegroundService extends Service {
 
 
 
-        private void inbox_simpan(String nomor, String pesan, String generated_id, String email, Context context) {
+        private void inbox_simpan(String nomor, String belum_pesan, String generated_id, String email, Context context) {
+
+            Log.d("coba_print_pesan", belum_pesan);
 
 
             try {
+                String pesan = belum_pesan.replace("#", "%23");
 
                 RequestQueue queue = Volley.newRequestQueue(context);
                 String url = new ConfigServer(context).get_url_local_inbox_simpan() + "&nomor=" + nomor + "&pesan=" + pesan + "&generated_id=" + generated_id + "&email=" + email;
@@ -249,7 +240,7 @@ public class ForegroundService extends Service {
         }
 
 
-    }
+    };
 
 
 
