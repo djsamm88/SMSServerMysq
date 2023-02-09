@@ -118,26 +118,12 @@
 
 
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-2993509046689702/3710191985"
-        >
-
-    <!-- untuk_testing ca-app-pub-3940256099942544/6300978111  -->
-    </com.google.android.gms.ads.AdView>
-
     <LinearLayout
         android:id="@+id/buttonHubungi"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="15"
+        android:weightSum="20"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -172,8 +158,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_weight="5"
-            android:background="@color/colorPrimaryDark"
-            android:text="Background" />
+            android:background="@color/ic_launcher_background"
+            android:text="Stop S" />
+
+        <Button
+            android:id="@+id/btn_start"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="5"
+            android:background="@color/colorAccent"
+            android:text="Start S" />
 
 
 

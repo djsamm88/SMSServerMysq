@@ -3,14 +3,24 @@
 
     <item
         android:id="@+id/menu_keluar"
-        android:icon="@drawable/common_full_open_on_phone"
+
         android:title="Hubungi Penjual" />
 
 
     <item
         android:id="@+id/menu_share"
-        android:icon="@color/common_google_signin_btn_text_dark_default"
+
         android:title="Share" />
+
+
+    <item
+        android:id="@+id/menu_start"
+        android:title="Start Service" />
+
+
+    <item
+        android:id="@+id/menu_stop"
+        android:title="Stop Service" />
 
 
 

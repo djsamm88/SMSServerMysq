@@ -1,0 +1,166 @@
+[
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-xxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-xhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-xxhdpi_ic_android_black_24dp.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-xxhdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-mdpi_ic_android_black_24dp.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-mdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_dialog_webview.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/dialog_webview.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-xxxhdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable_medantechno.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/drawable/medantechno.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_activity_signin.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/activity_signin.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-anydpi-v21_ic_android_black_24dp.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-anydpi-v21/ic_android_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-ldpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_activity_main.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_list_sms.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/list_sms.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-anydpi-v21/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_intro.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/intro.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_activity_splash_screen.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/activity_splash_screen.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-xhdpi_ic_android_black_24dp.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-xhdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-hdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/menu_menunya.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/menu/menunya.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/layout_dialog_penggunaan.xml.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/layout/dialog_penggunaan.xml"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-hdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-mdpi_ic_launcher_foreground.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-mdpi/ic_launcher_background.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-hdpi_ic_android_black_24dp.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-hdpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-ldpi_ic_android_black_24dp.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-ldpi/ic_android_black_24dp.png"
+    },
+    {
+        "merged": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/intermediates/res/merged/release/drawable-xxxhdpi_ic_android_black_24dp.png.flat",
+        "source": "/Users/mac/AndroidStudioProjects/SMSServerMysq/app/build/generated/res/pngs/release/drawable-xxxhdpi/ic_android_black_24dp.png"
+    }
+]

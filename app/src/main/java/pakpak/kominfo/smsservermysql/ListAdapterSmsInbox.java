@@ -20,9 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import pakpak.kominfo.smsservermysql.database.DbUser;
 import pakpak.kominfo.smsservermysql.model.ModelKirim;
 
 import java.security.MessageDigest;
@@ -48,8 +45,7 @@ public class ListAdapterSmsInbox extends BaseAdapter {
     Context context;
 
 
-    private DatabaseReference xmFirebaseDatabase;
-    private FirebaseDatabase xmFirebaseInstance;
+
 
 
 
@@ -105,26 +101,35 @@ public class ListAdapterSmsInbox extends BaseAdapter {
 
         // getting movie data for the row
 
-        final ModelKirim k = adminList.get(position);
-
-        v_nomor.setText(k.getNomor());
-        v_email.setText(k.getEmail());
-        v_status.setText(k.getStatus());
-        v_pesan.setText(k.getPesan());
-        v_id.setText(k.getId());
-        v_waktu.setText(k.getWaktu());
+        try {
+            final ModelKirim k = adminList.get(position);
 
 
-        convertView.setOnClickListener(new View.OnClickListener()
+            v_nomor.setText(k.getNomor());
+            v_email.setText(k.getEmail());
+            v_status.setText(k.getStatus());
+            v_pesan.setText(k.getPesan());
+            v_id.setText(k.getId());
+            v_waktu.setText(k.getWaktu());
+
+
+            convertView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+
+                    dialog_hapus(k);
+
+                }
+            });
+
+        }catch (Exception e)
         {
-            @Override
-            public void onClick(View view) {
 
-                dialog_hapus(k);
+        }
 
-            }
-        });
         return convertView;
+
     }
 
 

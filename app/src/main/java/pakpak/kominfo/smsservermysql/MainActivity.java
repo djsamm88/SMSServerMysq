@@ -1,8 +1,10 @@
 package pakpak.kominfo.smsservermysql;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,11 +18,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +34,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -44,19 +46,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -93,14 +84,6 @@ public class MainActivity extends AppCompatActivity {
     public String url_outbox,url_inbox;
 
 
-    private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
-
-    private DatabaseReference xmFirebaseDatabase;
-    private FirebaseDatabase xmFirebaseInstance;
-
-    private DatabaseReference dbUser;
-    private FirebaseDatabase instanceUser;
 
 
     private ListView listView,listView2;
@@ -113,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<ModelKirim> adminList2 = new ArrayList<ModelKirim>();
 
-    Button btn_penggunaan,btn_tentang,btn_keluar;
+    Button btn_penggunaan,btn_tentang,btn_keluar,btn_start;
 
 
     AlertDialog.Builder dialog;
@@ -124,10 +107,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar,progressBar2;
     TextView no_data,no_data2;
 
-    private FirebaseAuth mAuth;
-    private GoogleApiClient mGoogleApiClient;
 
-    private AdView mAdView;
 
 
     @Override
@@ -146,12 +126,9 @@ public class MainActivity extends AppCompatActivity {
         //showRequestPermissionsInfoAlertDialog();
 
         //iklan google
-        MobileAds.initialize(this, "ca-app-pub-2993509046689702/3710191985");
+        //MobileAds.initialize(this, "ca-app-pub-2993509046689702/3710191985");
         //untuk testing MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
 
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
 
 
         //initViews();
@@ -161,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
         btn_penggunaan = (Button) findViewById(R.id.btn_usage);
         btn_tentang = (Button) findViewById(R.id.btn_tentang);
         btn_keluar =(Button) findViewById(R.id.btn_keluar);
+        btn_start =(Button) findViewById(R.id.btn_start);
+
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar_cyclic1);
         progressBar2 = (ProgressBar) findViewById(R.id.progressBar_cyclic2);
@@ -194,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         /********************** menjalankan MysService**********************/
+        /*
         Intent go_service_outbox = new Intent(this, OutboxService.class);
         go_service_outbox.putExtra("email", email);
         startService(go_service_outbox);
@@ -206,6 +186,14 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent pintent = PendingIntent.getService(MainActivity.this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30*1000, pintent);
+
+         */
+
+
+        if (isMyServiceRunning(ForegroundService.class)) return;
+        Intent startIntent = new Intent(getApplicationContext(), ForegroundService.class);
+        startIntent.setAction("start");
+        startService(startIntent);
         /********************** menjalankan MysService**********************/
 
 
@@ -235,10 +223,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //signOut();
+                if (!isMyServiceRunning(ForegroundService.class)) return;
+                Intent stopIntent = new Intent(getApplicationContext(), ForegroundService.class);
+                stopIntent.setAction("stop");
+                startService(stopIntent);
+
+                //finish();
+
+            }
+        });
+
+        btn_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //signOut();
+
+                if (isMyServiceRunning(ForegroundService.class)) return;
+                Intent startIntent = new Intent(getApplicationContext(), ForegroundService.class);
+                startIntent.setAction("start");
+                startService(startIntent);
                 finish();
 
             }
         });
+
+
 
 
         update_token();
@@ -301,9 +310,18 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onBackPressed();
         //startService(new Intent(getBaseContext(),OutboxService.class));
+        /*
         Intent go_service_outbox = new Intent(this, OutboxService.class);
         go_service_outbox.putExtra("email", email);
         startService(go_service_outbox);
+
+         */
+
+        if (isMyServiceRunning(ForegroundService.class)) return;
+        Intent startIntent = new Intent(getApplicationContext(), ForegroundService.class);
+        startIntent.setAction("start");
+        startService(startIntent);
+
     }
 
 
@@ -625,6 +643,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     private void DialogWebview(final String md5nya)
     {
 
@@ -722,42 +741,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-    }
-
-
-    private void signOut() {
-        // Firebase sign out
-        mAuth = FirebaseAuth.getInstance();
-        mAuth.signOut();
-
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this , new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                        Toast.makeText(MainActivity.this,"Coba lagi.",Toast.LENGTH_SHORT).show();
-                    }
-                } /* OnConnectionFailedListener */)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .build();
-
-
-
-
-        //**********************mematikan MysService**********************//
-        Intent go_service_outbox = new Intent(this, OutboxService.class);
-        stopService(go_service_outbox);
-
-        finish();
-
-        Intent go_login = new Intent(this,SignInActivity.class);
-        startActivity(go_login);
 
     }
 
@@ -919,6 +902,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
                 return true;

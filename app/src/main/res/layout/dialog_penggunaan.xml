@@ -37,7 +37,7 @@
                     android:background="#3f84b5"
                     android:padding="10dp"
                     android:text="Outbox Url:"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textColor="#ff0000"
                     android:textSize="@dimen/activity_horizontal_margin" />
 
 
@@ -83,7 +83,7 @@
                     android:background="#3f84b5"
                     android:padding="10dp"
                     android:text="Inbox URL:"
-                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textColor="#ffffff"
                     android:textSize="@dimen/activity_horizontal_margin" />
 
 

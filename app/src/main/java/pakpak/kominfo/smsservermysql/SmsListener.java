@@ -8,10 +8,12 @@ import android.content.SharedPreferences;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+
 import android.telephony.SmsMessage;
 import android.util.Log;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,8 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 import pakpak.kominfo.smsservermysql.database.DbInbox;
 import pakpak.kominfo.smsservermysql.database.DbUser;
 import pakpak.kominfo.smsservermysql.model.ModelKirim;

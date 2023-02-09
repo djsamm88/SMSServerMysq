@@ -42,7 +42,7 @@ public class ConfigServer {
             try {
 
                 //dbConfig.insert(new ModelConfig("1", "http://ujicoba.pakpakbharatkab.go.id/sms/data_inbox.php", "http://ujicoba.pakpakbharatkab.go.id/sms/data_outbox.php"));
-                dbConfig.insert(new ModelConfig("1", "http://ujicoba.pakpakbharatkab.go.id/sms/data_inbox.php", "http://esurat.pakpakbharatkab.go.id/sms_data_out/index"));
+                dbConfig.insert(new ModelConfig("1", "https://hotabilardus.net/sms_gateway/sms_gateway_inbox.php", "https://hotabilardus.net/sms_gateway/sms_gateway_outbox.php"));
                 //dbConfig.insert(new ModelConfig("1", "https://sipelaknpb.pakpakbharatkab.go.id/sms_gateway/sms_gateway_inbox.php", "https://sipelaknpb.pakpakbharatkab.go.id/sms_gateway/sms_gateway_outbox.php"));
 
             }catch (Exception z)

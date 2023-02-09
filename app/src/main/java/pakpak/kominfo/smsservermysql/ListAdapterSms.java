@@ -20,9 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import pakpak.kominfo.smsservermysql.database.DbUser;
 import pakpak.kominfo.smsservermysql.model.ModelKirim;
 
 import java.security.MessageDigest;
@@ -46,8 +43,6 @@ public class ListAdapterSms extends BaseAdapter {
     View dialogView;
 
     Context context;
-    private DatabaseReference mFirebaseDatabase;
-    private FirebaseDatabase mFirebaseInstance;
 
     public ListAdapterSms(Activity activity, List<ModelKirim> adminList,Context context) {
         this.activity = activity;

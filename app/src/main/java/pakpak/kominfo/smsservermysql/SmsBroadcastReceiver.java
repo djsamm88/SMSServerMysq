@@ -3,6 +3,7 @@ package pakpak.kominfo.smsservermysql;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
 import android.util.Log;
@@ -24,9 +25,11 @@ public class SmsBroadcastReceiver extends BroadcastReceiver
 
             String smsSender = "";
             String smsBody = "";
-            for (SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
-                smsBody += smsMessage.getMessageBody();
-            }
+
+                for (SmsMessage smsMessage : Telephony.Sms.Intents.getMessagesFromIntent(intent)) {
+                    smsBody += smsMessage.getMessageBody();
+                }
+
 
             if (smsBody.startsWith(SmsHelper.SMS_CONDITION))
             {

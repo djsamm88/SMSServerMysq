@@ -10,13 +10,13 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.content.ContextCompat;
+
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,12 +25,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -50,8 +44,6 @@ import java.security.NoSuchAlgorithmException;
 public class OutboxService extends Service {
 
 
-    DatabaseReference mFirebaseDatabase;
-    FirebaseDatabase mFirebaseInstance;
 
     String email;
     Context context;
@@ -145,57 +137,57 @@ public class OutboxService extends Service {
 
 
 
-    public static final String md5(final String s)
-    {
-        final String MD5 = "MD5";
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = MessageDigest
-                    .getInstance(MD5);
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
 
-            // Create Hex String
-            StringBuilder hexString = new StringBuilder();
-            for (byte aMessageDigest : messageDigest) {
-                String h = Integer.toHexString(0xFF & aMessageDigest);
-                while (h.length() < 2)
-                    h = "0" + h;
-                hexString.append(h);
+    private void bacaOutbox()
+    {
+        /*
+        Intent get_email = new Intent();
+        email = get_email.getStringExtra("email");
+        */
+        context = this;
+
+        DbUser dbUser = new DbUser(this);
+        try{
+            int id = dbUser.select_terbesar().getId_member();
+            String id_member = String.valueOf(id);
+            email = dbUser.select_terbesar().getEmail();
+            Log.d("member:",id_member+email);
+
+        }catch (Exception e)
+        {
+            try {
+
+                int id = dbUser.select_terbesar().getId_member();
+                String id_member = String.valueOf(id);
+                email = dbUser.select_terbesar().getEmail();
+                Log.d("member:",id_member+email);
+
+            }catch (Exception o)
+            {
+                email = "admin@gmail.com";
             }
-            return hexString.toString();
 
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+
         }
-        return "";
+
+
+        /******* auto refresh **********/
+
+        final Handler handler = new Handler();
+        Runnable refresh = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("delay");
+                panggilJson();
+                handler.postDelayed(this, 50000);
+            }
+        };
+        handler.postDelayed(refresh, 50000);
+
+        /******* auto refresh **********/
+
+
     }
-
-
-    public void setNotif(String judul, String isi, Context context)
-    {
-
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-
-        /****** sound *******/
-        Uri uri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "1")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(judul)
-                .setContentText(isi)
-                .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 })
-                .setSound(uri)
-                .setContentIntent(pendingIntent)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-        notificationManager.notify(1, mBuilder.build());
-    }
-
-
 
     private void panggilJson()
     {
